@@ -1,4 +1,5 @@
 import { Button, Typography } from "@mui/material";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,10 +9,10 @@ export default function Home() {
       </Typography>
       <Button
         variant="contained"
-        href="https://google.com"
-        target="_blank"
+        component={Link}
+        href="/login"
       >
-        Open Google
+        Go to login
       </Button>
     </div>
   )
