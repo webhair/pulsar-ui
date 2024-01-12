@@ -3,13 +3,14 @@
 import { Status } from "@/lib/abstractions/Status";
 import { useAlerts } from "@/lib/states/useAlerts";
 import { LoadingButton } from "@mui/lab";
-import { Paper, Stack, TextField, Typography } from "@mui/material";
+import { Button, Divider, Paper, Stack, TextField, Typography } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 import { z } from "zod";
 import { PasswordField } from "./PasswordFiled";
 import authApi from "@/lib/api/AuthApi";
-
+import GoogleIcon from '@mui/icons-material/Google';
+import AdsClickIcon from '@mui/icons-material/AdsClick';
 
 const LoginFormSchema = z.object({
   email: z.string().email(),
@@ -61,7 +62,7 @@ export default function LoginBox() {
   const handleSuccess = () => {
     setStatus('success')
 
-    router.push('/protected')
+    router.push('/')
 
     openAlert({
       severity: 'success',
@@ -127,6 +128,24 @@ export default function LoginBox() {
             >
               Login
             </LoadingButton>
+          </Stack>
+          <Divider/>
+          <Stack
+            direction="row"
+            spacing={1}
+          >
+            <Button
+              variant="outlined"
+              startIcon={<GoogleIcon/>}
+            >
+              Login con Google
+            </Button>
+            <Button
+              variant="outlined"
+              startIcon={<AdsClickIcon/>}
+            >
+              Login con ClickUp
+            </Button>
           </Stack>
         </Stack>
       </Paper>
