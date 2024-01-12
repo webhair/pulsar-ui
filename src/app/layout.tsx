@@ -8,8 +8,8 @@ import { AuthInitializer } from "@/lib/states/auth/AuthInitializer";
 import useAuth from "@/lib/states/auth/useAuth";
 
 export const metadata: Metadata = {
-  title: 'Next Mui template',
-  description: 'Questo è un template.',
+  title: 'Pulsar',
+  description: '',
 }
 
 export default function RootLayout({
