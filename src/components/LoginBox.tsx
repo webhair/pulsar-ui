@@ -81,7 +81,7 @@ export default function LoginBox() {
       justifyContent="center"
     >
       <Paper
-        sx={{ padding: 4 }}
+        sx={{ padding: 3 }}
       >
         <Stack
           component='form'
@@ -95,6 +95,7 @@ export default function LoginBox() {
             Login
           </Typography>
           <TextField
+            size="small"
             id="login-username"
             label="Email"
             type="text"
@@ -104,6 +105,7 @@ export default function LoginBox() {
             onChange={handleChange("email")}
           />
           <PasswordField
+            size="small"
             id="login-password"
             label="Password"
             variant="outlined"
