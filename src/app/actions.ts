@@ -10,6 +10,8 @@ interface IAuthGuard {
 }
 
 export const authGuard = (opt: IAuthGuard) => {
+  return
+  /*
   const cookieStore = cookies()
   const accessToken = cookieStore.get('accessToken')?.value ?? ''
 
@@ -23,5 +25,5 @@ export const authGuard = (opt: IAuthGuard) => {
   if(!opt.redirectOnSuccess) 
     return
 
-  return redirect(opt.redirectOnSuccess)
+  return redirect(opt.redirectOnSuccess)*/
 }

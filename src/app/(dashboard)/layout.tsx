@@ -1,11 +1,19 @@
-interface DashboardLayoutProps {
-  readonly children: React.ReactNode;
+import { MiniDrawer } from "@/components/MiniDrawer";
+import { ReactNode } from "react";
+import { authGuard } from "../actions";
+
+interface LayoutProps {
+  readonly children: ReactNode
 }
 
-export default async function DashboardLayout(props: DashboardLayoutProps) {
+export default function Layout(props: LayoutProps) {
+  authGuard({
+    redirect: '/login',
+  })
+  
   return (
-    <div>
+    <MiniDrawer>
       {props.children}
-    </div>
+    </MiniDrawer>
   )
 }
