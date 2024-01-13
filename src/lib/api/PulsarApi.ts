@@ -4,8 +4,9 @@ import { AxiosRequestConfig } from 'axios';
 import { Tokens } from '../abstractions/Tokens';
 import { getDecodedToken, isTokenExpired } from '../tokenUtils';
 import { Account } from './account/Account';
+import { Organizations } from './organizations/Organizations';
 
-class ProjectApi extends ApiBase {
+class PulsarApi extends ApiBase {
   constructor(config: AxiosRequestConfig) {
     super(config)
     
@@ -39,6 +40,10 @@ class ProjectApi extends ApiBase {
   get account() {
     return new Account(this.client)
   }
+
+  get organizations() {
+    return new Organizations(this.client)
+  }
 }
 
 export const getTokens = async (): Promise<Tokens> => {
@@ -67,9 +72,9 @@ const getClientTokens = async () => import('@/lib/states/auth/useAuth').then(c =
   return c.default.getState().tokens
 }) 
 
-const projectApi = new ProjectApi({
+const pulsarApi = new PulsarApi({
   withCredentials: true,
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
 })
 
-export default projectApi
+export default pulsarApi

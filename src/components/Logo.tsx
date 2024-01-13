@@ -26,7 +26,7 @@ export function Logo(props: LogoProps) {
       >
         <Image
           alt="Logo"
-          src="/logo.jpeg"
+          src="/logo.jpg"
           layout="fill"
           objectFit="contain"
         />
@@ -35,7 +35,7 @@ export function Logo(props: LogoProps) {
         variant="subtitle1"
         fontWeight={700}
       >
-        Notification Center
+        Pulsar
       </Typography>
     </Stack>
   )

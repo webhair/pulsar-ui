@@ -20,17 +20,18 @@ const transparent1 = alpha(grey[500], 0.2);
 const transparent2 = alpha(grey[500], 0.14);
 const transparent3 = alpha(grey[500], 0.12);
 
-export const getTheme = (deviceType: DeviceType) => {
+export const getTheme = (deviceType: DeviceType, mainColor: string, mode: 'light' | 'dark') => {
   const theme = createTheme({
     palette: {
+      mode: mode,
       primary: {
-        main: '#021e2b'
+        main: mainColor
       },
       background: {
-        default: '#ffffff',
-        paper: '#FBFCFE'
+        default:  mode === 'light' ? '#ffffff' : '#1c1c1c',
+        paper: mode === 'light' ? '#FBFCFE' : '#2A2A2A'
       },
-      divider: '#CDD7E1'
+      divider: mode === 'light' ? '#CDD7E1' : '#636363',
     },
     shape: {
       borderRadius: 6
@@ -119,6 +120,15 @@ export const getTheme = (deviceType: DeviceType) => {
       styleOverrides: {
         root: {
           background: theme.palette.background.paper,
+        }
+      }
+    },
+    MuiDialogActions: {
+      styleOverrides: {
+        root: {
+          padding: theme.spacing(3),
+          paddingTop: theme.spacing(0),
+          paddingBottom: theme.spacing(3),
         }
       }
     },

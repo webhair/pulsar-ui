@@ -1,6 +1,7 @@
 "use server"
 
 import { getDecodedToken, isTokenExpired } from "@/lib/tokenUtils"
+import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
@@ -10,8 +11,6 @@ interface IAuthGuard {
 }
 
 export const authGuard = (opt: IAuthGuard) => {
-  return
-  /*
   const cookieStore = cookies()
   const accessToken = cookieStore.get('accessToken')?.value ?? ''
 
@@ -25,5 +24,14 @@ export const authGuard = (opt: IAuthGuard) => {
   if(!opt.redirectOnSuccess) 
     return
 
-  return redirect(opt.redirectOnSuccess)*/
+  return redirect(opt.redirectOnSuccess)
+}
+
+export const revalidate = (path: string) => {
+  revalidatePath(path)
+} 
+
+export const revalidateAll = (path: string, id: string | number) => {
+  revalidatePath(path)
+  revalidatePath(`${path}/${id}` )
 }
