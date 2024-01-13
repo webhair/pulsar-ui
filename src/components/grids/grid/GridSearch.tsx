@@ -1,11 +1,11 @@
 import { Button, InputAdornment, OutlinedInput, Stack } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 import SearchIcon from '@mui/icons-material/Search';
-import { MouseEventHandler, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface GridSearchProps {
   readonly addLabel: string
-  readonly onAdd: (event: any) => void
+  readonly onAdd: (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void
   readonly extra?: ReactNode
 }
 
