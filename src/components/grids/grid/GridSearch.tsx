@@ -5,7 +5,7 @@ import { MouseEventHandler, ReactNode } from "react";
 
 interface GridSearchProps {
   readonly addLabel: string
-  readonly handleAdd: (event: any) => void
+  readonly onAdd: (event: any) => void
   readonly extra?: ReactNode
 }
 
@@ -34,7 +34,7 @@ export function GridSearch(props: GridSearchProps) {
       <Button
         startIcon={<AddIcon />}
         variant='contained'
-        onClick={props.handleAdd}
+        onClick={props.onAdd}
       >
         {props.addLabel}
       </Button>

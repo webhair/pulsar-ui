@@ -24,12 +24,12 @@ export default function CrmDetailClientPage() {
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed auctor varius diam vel pretium. Morbi id mi ligula. Cras posuere auctor pretium.
       </Typography>
       <ProjectsGrid
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
       />
       <DocumentsGrid
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
       />
     </Stack>
   )

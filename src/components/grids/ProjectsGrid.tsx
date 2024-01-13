@@ -5,12 +5,12 @@ import { DataGrid } from "@mui/x-data-grid"
 import { GridSearch } from "./grid/GridSearch"
 
 interface CrmGridProps {
-  readonly handleEdit: (event: any) => void
-  readonly handleDelete: (event: any) => void
+  readonly onEdit: (event: any) => void
+  readonly onDelete: (event: any) => void
 }
 
 export default function CrmGrid(props: CrmGridProps) {
-  const { handleEdit, handleDelete } = props
+  const { onEdit, onDelete } = props
 
   return (
     <Stack
@@ -25,7 +25,7 @@ export default function CrmGrid(props: CrmGridProps) {
       </Typography>
       <GridSearch
         addLabel="Nuovo Progetto"
-        handleAdd={(e) => console.log("WIP NUOVO PROGETTO", e)}
+        onAdd={(e) => console.log("WIP NUOVO PROGETTO", e)}
       />
       <DataGrid
         getRowId={(row) => row.name}
@@ -49,13 +49,13 @@ export default function CrmGrid(props: CrmGridProps) {
                 >
                   <Button
                     color='success'
-                    onClick={handleEdit}
+                    onClick={onEdit}
                   >
                     Modifica
                   </Button>
                   <Button
                     color='error'
-                    onClick={handleDelete}
+                    onClick={onDelete}
                   >
                     Elimina
                   </Button>

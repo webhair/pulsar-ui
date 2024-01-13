@@ -5,12 +5,12 @@ import { DataGrid } from "@mui/x-data-grid"
 import { GridSearch } from "./grid/GridSearch"
 
 interface DocumentsGridProps {
-  readonly handleEdit: (event: any) => void
-  readonly handleDelete: (event: any) => void
+  readonly onEdit: (event: any) => void
+  readonly onDelete: (event: any) => void
 }
 
 export default function DocumentsGrid(props: DocumentsGridProps) {
-  const { handleEdit, handleDelete } = props
+  const { onEdit, onDelete } = props
 
   return (
     <Stack
@@ -25,7 +25,7 @@ export default function DocumentsGrid(props: DocumentsGridProps) {
       </Typography>
       <GridSearch
         addLabel='Nuovo Documento'
-        handleAdd={(e) => console.log("WIP NUOVO DOCUMENTO", e)}
+        onAdd={(e) => console.log("WIP NUOVO DOCUMENTO", e)}
       />
       <DataGrid
         getRowId={(row) => row.name}
@@ -68,13 +68,13 @@ export default function DocumentsGrid(props: DocumentsGridProps) {
                 >
                   <Button
                     color='success'
-                    onClick={handleEdit}
+                    onClick={onEdit}
                   >
                     Modifica
                   </Button>
                   <Button
                     color='error'
-                    onClick={handleDelete}
+                    onClick={onDelete}
                   >
                     Elimina
                   </Button>

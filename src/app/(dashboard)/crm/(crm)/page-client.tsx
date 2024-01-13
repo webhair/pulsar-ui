@@ -22,8 +22,8 @@ export default function CrmClientPage() {
       spacing={2}
     >
       <CrmGrid
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
+        onEdit={handleEdit}
+        onDelete={handleDelete}
       />
     </Stack>
   )

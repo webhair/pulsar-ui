@@ -1,9 +1,14 @@
 import { Organization } from '@/abstractions/Organization';
 import { Endpoint } from '@/lib/Endpoint';
+import { OrganizationId } from './organization/OrganizationId';
 
 export class Organizations extends Endpoint {
   get url() {
     return 'organizations';
+  }
+
+  id(id: Organization['id']) {
+    return new OrganizationId(id, this.client);
   }
 
   load() {
