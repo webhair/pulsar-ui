@@ -1,12 +1,11 @@
 import { authGuard } from "../actions";
-import PageBox from "./PageBox";
 
-export default async function Protected() {
+export default async function Dashboard() {
   authGuard({
     redirect: "/login",
   });
 
   return (
-    <PageBox/>
+    "Dashboard"
   )
 }

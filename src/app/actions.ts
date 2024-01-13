@@ -1,6 +1,7 @@
 "use server"
 
 import { getDecodedToken, isTokenExpired } from "@/lib/tokenUtils"
+import { revalidatePath } from "next/cache"
 import { cookies } from "next/headers"
 import { redirect } from "next/navigation"
 
@@ -24,4 +25,13 @@ export const authGuard = (opt: IAuthGuard) => {
     return
 
   return redirect(opt.redirectOnSuccess)
+}
+
+export const revalidate = (path: string) => {
+  revalidatePath(path)
+} 
+
+export const revalidateAll = (path: string, id: string | number) => {
+  revalidatePath(path)
+  revalidatePath(`${path}/${id}` )
 }

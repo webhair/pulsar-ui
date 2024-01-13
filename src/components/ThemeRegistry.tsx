@@ -1,5 +1,6 @@
 'use client';
 
+import { useThemeState } from '@/lib/states/useThemeState';
 import { DeviceType, getTheme } from '@/lib/theme';
 import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
@@ -57,8 +58,9 @@ export default function ThemeRegistry(props: ThemeRegistryProps) {
     );
   });
 
+  const { color, mode } = useThemeState()
 
-  const theme = getTheme(props.deviceType)
+  const theme = getTheme(props.deviceType, color, mode)
 
   return (
     <CacheProvider value={cache} >
