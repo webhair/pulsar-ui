@@ -1,9 +1,11 @@
 'use client'
 import { Box, Button, Card, Input, Stack, TextField, Typography } from "@mui/material";
+import { MuiTelInput } from "mui-tel-input";
 import Image from "next/image";
 import React from "react";
 interface FormData {
   name: string
+  phoneNumber: string
   email: string
 }
 interface FormDataProps {
@@ -13,13 +15,14 @@ interface FormDataProps {
 }
 
 
-export default function NDA() {
+export default function NDAForm() {
   const [formData, setFormData] = React.useState<FormData>({
     name : '',
+    phoneNumber: '',
     email: ''
   })
 
-  const disableSubmit = !formData.name || !formData.email
+  const disableSubmit = !formData.name || !formData.email || !formData.phoneNumber
 
   const handleChange = <T extends keyof FormData>(key: T, value: FormData[T]) => {
     setFormData({
@@ -40,7 +43,7 @@ export default function NDA() {
     >
       <Card
         sx={{
-          padding: {xs: 1, sm: 4},
+          padding: {xs: 1, sm: 2},
         }}
       >
         <Stack
@@ -48,7 +51,7 @@ export default function NDA() {
           alignItems="center"
           justifyContent="center"
           gap={2}
-          padding={{xs: 1, sm: 4}}
+          padding={{xs: 1, sm: 2}}
           maxWidth={500}
         >
           <Box
@@ -78,12 +81,19 @@ export default function NDA() {
               value={formData.name}
               onChange={(e) => handleChange('name', e.target.value)}
             />
+            <MuiTelInput
+              value={formData.phoneNumber}
+              defaultCountry="IT"
+              fullWidth
+              onChange={(e) => handleChange('phoneNumber', e)}
+            />
             <TextField
               variant="outlined"
               label="Email"
               fullWidth
               value={formData.email}
               onChange={(e) => handleChange('email', e.target.value)}
+              autoComplete="email"
             />
             <Button
               variant="contained"
