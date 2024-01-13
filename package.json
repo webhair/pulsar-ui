@@ -15,6 +15,7 @@
     "@mui/icons-material": "^5.14.14",
     "@mui/lab": "5.0.0-alpha.153",
     "@mui/material": "^5.14.14",
+    "@mui/x-data-grid": "^6.18.7",
     "axios": "^1.6.1",
     "css-mediaquery": "^0.1.2",
     "jwt-decode": "^4.0.0",
