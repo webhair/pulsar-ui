@@ -47,8 +47,8 @@ export default function DocumentsGrid(props: DocumentsGridProps) {
                   spacing={1}
                 >
                   {
-                    params.row.tag.map(tag => {
-                      return <Chip label={tag} />
+                    params.row.tag.map((tag, i) => {
+                      return <Chip key={i} label={tag} />
                     })
                   }
                 </Stack>
