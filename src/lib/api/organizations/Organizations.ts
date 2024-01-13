@@ -4,7 +4,7 @@ import { OrganizationId } from './organization/OrganizationId';
 
 export class Organizations extends Endpoint {
   get url() {
-    return 'organizations';
+    return 'orgs';
   }
 
   id(id: Organization['id']) {
